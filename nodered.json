@@ -1,0 +1,55 @@
+[
+    {
+        "id": "54204d21835f7f9a",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "g": "7dfec1c5eb5952c5",
+        "name": "",
+        "topic": "robot/action",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "bad01b718043dd1b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 650,
+        "y": 300,
+        "wires": [
+            [
+                "71b9465f20f68dd6"
+            ]
+        ]
+    },
+    {
+        "id": "bad01b718043dd1b",
+        "type": "mqtt-broker",
+        "name": "mosquitto",
+        "broker": "mosquitto",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

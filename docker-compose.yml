@@ -1,0 +1,43 @@
+services:
+  nodered:
+    image: nodered/node-red:latest
+    container_name: nodered
+    ports:
+      - "1880:1880"
+    volumes:
+      - nodered_data:/data
+    depends_on:
+      - mosquitto
+    networks:
+      - app-network
+  mosquitto:
+    image: eclipse-mosquitto
+    hostname: mosquitto
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config:rw
+      - mosquitto_data:/mosquitto/data:rw
+      - ./mosquitto/log:/mosquitto/log:rw
+    networks:
+      - app-network
+
+  mqttx:
+    image: emqx/mqttx-web
+    hostname: mqttx
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    networks:
+      - app-network
+
+volumes:
+  nodered_data:
+  mosquitto_data:
+
+
+networks:
+  app-network:
+    driver: bridge
