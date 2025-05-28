@@ -2,6 +2,8 @@
 
 Simulador de robô autônomo com detecção de obstáculos usando PyBullet e controle remoto via MQTT.
 
+### 📽️ [Vídeo demonstrativo](https://youtu.be/pONanTnLzdM)
+
 ## 🎯 Objetivo
 Desenvolver um robô que detecta obstáculos e para automaticamente, com controle remoto via MQTT.
 

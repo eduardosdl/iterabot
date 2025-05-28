@@ -17,7 +17,6 @@ MQTT_USER = 'edu'
 MQTT_PASSWORD = 'eduardo'
 MQTT_COMMAND_TOPIC = 'robot/command'
 MQTT_STATUS_TOPIC = 'robot/status'
-MQTT_ACTION_TOPIC = 'robot/action'
 
 PHYSICS_TIME_STEP = 1./240.
 PHYSICS_SOLVER_ITERATIONS = 150
@@ -305,7 +304,7 @@ def send_current_action(action):
             "timestamp": time.time()
         }
         if mqtt_client:
-            mqtt_client.publish(MQTT_ACTION_TOPIC, json.dumps(action_data))
+            mqtt_client.publish(MQTT_STATUS_TOPIC, json.dumps(action_data))
             print(f"Action sent: {current_action} - State: {robot_state}")
     except Exception as e:
         print(f"Error sending action: {e}")
@@ -316,8 +315,7 @@ def send_object_detection_status():
     try:
         position, _ = p.getBasePositionAndOrientation(robot_id)
         status_data = {
-            "status": "object_detected",
-            "message": "Object detected - robot stopped",
+            "action": "parado - objeto detectado",
             "position": {
                 "x": float(position[0]),
                 "y": float(position[1]),
